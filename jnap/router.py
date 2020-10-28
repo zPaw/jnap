@@ -27,7 +27,7 @@ class Linksys:
         if pw is None: pw = self.pw
 
         return {
-            "X-JNAP-Authorization":"Basic " +b64(user + ":" + pw)
+            "X-JNAP-Authorization":"Basic " + str(b64((user + ":" + pw).encode()))[2:-1]    # Thanks python3 (verified backwards compatible with python2)
         }
 
     #
