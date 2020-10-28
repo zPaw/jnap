@@ -1,9 +1,9 @@
-### jnap - library for talking to Linksys router API
+# jnap - library for talking to Linksys router API
 
-This library allows you to programatically talk to Linksys Smart Wi-Fi
+This library allows you to programmatically talk to Linksys Smart Wi-Fi
 routers that use HNAP (or JNAP, I'm not really sure what it's called).
 
-### Install from this repo
+## Install from this repo
 
 Run this at the command line:
 
@@ -15,7 +15,7 @@ Run this at the command line:
 
 2. Assuming your router is at 192.168.1.1
 
-    python demo/jnap-demo.py https://192.168.1.1 2> /dev/null
+        python demo/jnap-demo.py https://192.168.1.1 2> /dev/null
 
 Enter your password when prompted. You can enter an invalid password, and
 the router will just complain on all the actions that require authorization.
@@ -31,7 +31,6 @@ address.
 The demo script is well documented and uses all of the features I bothered
 to implement. It serves as a better tutorial than I have the time to write
 right now. Nonetheless, here is a quick synopsis of some key features
-
 
       # import the library
       from jnap.router import Linksys
@@ -54,23 +53,22 @@ All of the methods jnap/router.py are well documented in the comments. Here
 is the documentation as it appears in the comments. These can all be called
 on the router instance.
 
-
-	    password - set the password to use for authentication
-	        args -    pw - password string
-	               uname - defaults to admin. I don't think anything
-	                       else will work
-	        rets - none
-
+        password - set the password to use for authentication
+            args -    pw - password string
+                   uname - defaults to admin. I don't think anything
+                           else will work
+            rets - none
 
 
-	    check_password - Check whether a supplied string is the admin password
-	                     of the router. Yes, that's a thing.
-	              args -     pw - the password to test
-	                     [user] - the username (defaults to "admin"). this is
-	                              optional and I'm not sure if any other user name
-	                              would actually work here, although technically
-	                              these routers support more than one user.
-	              rets - same as do_action
+
+        check_password - Check whether a supplied string is the admin password
+                         of the router. Yes, that's a thing.
+                  args -     pw - the password to test
+                         [user] - the username (defaults to "admin"). this is
+                                  optional and I'm not sure if any other user name
+                                  would actually work here, although technically
+                                  these routers support more than one user.
+                  rets - same as do_action
 
 
 
@@ -141,7 +139,6 @@ on the router instance.
 All of the above methods are implemented by calling the following helper
 method, so you can easily add support for JNAP API calls you want to make:
 
-
      do_action - Perform a specific API call. This is a helper function
                  used to build the methods below.
           args - action - the action to perform
@@ -153,16 +150,3 @@ method, so you can easily add support for JNAP API calls you want to make:
                              That seems to be what's going on based on the HTTP traffic.
           rets - returns a response to the HTTP POST request (see requests library)
          notes - maybe I should make this return the JSON
-
-
-
-
-
-
-
-
-
-
-
-
-
