@@ -134,6 +134,11 @@ on the router instance.
                       rets - same as do-action
                      notes - authentication required
 
+     get_mac_filter_settings - get the current settings for the MAC filter
+                        args - none
+                        rets - same as do-action
+                       notes - authentication required
+
 ### Extending
 
 All of the above methods are implemented by calling the following helper

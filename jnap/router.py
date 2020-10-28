@@ -182,3 +182,12 @@ class Linksys:
     #                 notes - authentication required
     def get_traceroute_status(self):
         return self.do_action("diagnostics/GetTracerouteStatus",headers=self.auth())
+
+    #
+    # get_mac_filter_settings - get the current settings for the MAC filter
+    #                    args - none
+    #                    rets - same as do-action
+    #                   notes - authentication required
+    #
+    def get_mac_filter_settings(self):
+        return self.do_action("macfilter/GetMACFilterSettings", headers=self.auth())
