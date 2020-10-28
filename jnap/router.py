@@ -191,3 +191,13 @@ class Linksys:
     #
     def get_mac_filter_settings(self):
         return self.do_action("macfilter/GetMACFilterSettings", headers=self.auth())
+
+    #
+    # set_mac_filter_settings - get the current settings for the MAC filter
+    #                    args -      mode - string MAC filter mode. possible values (Deny, Allow)
+    #                           addresses - list of string addresses to filter
+    #                    rets - same as do-action
+    #                   notes - authentication required
+    #
+    def set_mac_filter_settings(self, mode, addresses=[]):
+        return self.do_action("macfilter/SetMACFilterSettings", headers=self.auth(), data={"macFilterMode": mode, "macAddresses": addresses})
