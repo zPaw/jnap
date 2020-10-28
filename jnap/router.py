@@ -22,10 +22,10 @@ class Linksys:
     #               work even though technically the router
     #               says it can have up to 10 usernames
     # rets - none
-    #                         
+    #
     def auth(self, pw=None, user="admin"):
         if pw is None: pw = self.pw
-            
+
         return {
             "X-JNAP-Authorization":"Basic " +b64(user + ":" + pw)
         }
@@ -40,7 +40,7 @@ class Linksys:
     def password(self, pw, uname="admin"):
         self.pw = pw
 
-    # 
+    #
     # def do_get(self, action):
     #     return self.s.get(self.url + action)
 
@@ -62,7 +62,7 @@ class Linksys:
         self.s = requests.session()
 
         self.s.headers.update(headers)
-    
+
         self.s.headers.update({
             "Content-Type": "application/json; charset=UTF-8",
             "Accept": "application/json",
@@ -86,7 +86,7 @@ class Linksys:
     def check_password(self, pw, user="admin"):
         return self.do_action("core/CheckAdminPassword",
                               headers=self.auth(pw, user))
-                              
+
 
     #
     # has_default_password - Check whether the router still has its default password.
@@ -132,7 +132,7 @@ class Linksys:
     #                  count - number of pings to send. (None for indefinite!)
     #       rets - same as do_action
     #      notes - authentication required
-    #               
+    #
     def start_ping(self, host="localhost", byte_size=31337, count=10):
 
         data={
@@ -144,7 +144,7 @@ class Linksys:
             data["pingCount"] = count
 
         print(data)
-        
+
         return self.do_action("diagnostics/StartPing",
                               headers=self.auth(),
                               data=data)
@@ -162,7 +162,7 @@ class Linksys:
     #             args - host - a hostname or IPv4 addr string
     #             rets - same as do_action
     #            notes - authentication required
-    #          
+    #
     def start_traceroute(self, host):
         return self.do_action("diagnostics/StartTraceroute",headers=self.auth(),
                               data={"host":host})
@@ -173,7 +173,7 @@ class Linksys:
     #            rets - same as do_action
     #           notes - authentication required
     def stop_traceroute(self):
-        return self.do_action("diagnostics/StopTraceroute",headers=self.auth())            
+        return self.do_action("diagnostics/StopTraceroute",headers=self.auth())
 
     #
     # get_traceroute_status - get the status of a traceroute action

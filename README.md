@@ -7,13 +7,13 @@ routers that use HNAP (or JNAP, I'm not really sure what it's called).
 
 Run this at the command line:
 
-    pip install git+git://github.com/jakekara/jnap.git 
+    pip install git+git://github.com/jakekara/jnap.git
 
 ### Run the demo script
 
 1. Download the script jnap-demo.py in the demo folder of this repo
 
-2. Assuming your router is at 192.168.1.1 
+2. Assuming your router is at 192.168.1.1
 
     python demo/jnap-demo.py https://192.168.1.1 2> /dev/null
 
@@ -40,7 +40,7 @@ right now. Nonetheless, here is a quick synopsis of some key features
       router = Linksys(IP_ADDRESS, pw="PASSWORD")
 
       # now you can just call actions that I've implemented, like...
-      
+
       # check if the router has a default password
       router.has_default_password()
 
@@ -54,15 +54,15 @@ All of the methods jnap/router.py are well documented in the comments. Here
 is the documentation as it appears in the comments. These can all be called
 on the router instance.
 
-           
+
 	    password - set the password to use for authentication
 	        args -    pw - password string
 	               uname - defaults to admin. I don't think anything
 	                       else will work
 	        rets - none
-	   
 
-	   
+
+
 	    check_password - Check whether a supplied string is the admin password
 	                     of the router. Yes, that's a thing.
 	              args -     pw - the password to test
@@ -71,37 +71,37 @@ on the router instance.
 	                              would actually work here, although technically
 	                              these routers support more than one user.
 	              rets - same as do_action
-	   
 
 
-    
+
+
      has_default_password - Check whether the router still has its default password.
                             Yes, that's a thing. I believe these routers are not
                             hardcoded, they come with per-unit passwords printed on
                             a sticker.
                      args - none
                      rets - same as do_action
-    
 
-    
+
+
      get_users - list all the router's users. Generally just "admin" and "guest"
           args - none
           rets - same as do_action
-    
 
-    
+
+
      get_device_info - get a bunch of summary info about the device
                 args - none
                 rets - same as do_action
 
-    
+
      stop_ping - stop pinging
           args - none
           rets - same as do_action
          notes - authentiation required
-    
 
-    
+
+
      start_ping - start pinging something
            args -      host - host to ping
                   byte_size - optional int between 32 and 65500 to specify
@@ -109,28 +109,28 @@ on the router instance.
                       count - number of pings to send. (None for indefinite!)
            rets - same as do_action
           notes - authentication required
-                   
 
-    
+
+
      get_ping_status - check on how a ping action is going
                 args - none
                 rets - same as do_action
                notes - authentication required
 
-    
+
      start_traceroute - start tracerouteing to some host
                  args - host - a hostname or IPv4 addr string
                  rets - same as do_action
                 notes - authentication required
-              
 
-    
+
+
      stop_traceroute - stop a traceroute action
                 args - none
                 rets - same as do_action
                notes - authentication required
 
-    
+
      get_traceroute_status - get the status of a traceroute action
                       args - none
                       rets - same as do-action
@@ -141,7 +141,7 @@ on the router instance.
 All of the above methods are implemented by calling the following helper
 method, so you can easily add support for JNAP API calls you want to make:
 
-    
+
      do_action - Perform a specific API call. This is a helper function
                  used to build the methods below.
           args - action - the action to perform
@@ -153,14 +153,14 @@ method, so you can easily add support for JNAP API calls you want to make:
                              That seems to be what's going on based on the HTTP traffic.
           rets - returns a response to the HTTP POST request (see requests library)
          notes - maybe I should make this return the JSON
-     
 
 
 
 
-      
 
-      
+
+
+
 
 
 

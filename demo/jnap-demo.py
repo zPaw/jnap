@@ -5,12 +5,12 @@
 # jake@jakekara.com
 #
 
-from jnap.router import Linksys 
+from jnap.router import Linksys
 from time import sleep
 import json
 import sys
 import getpass
- 
+
 addr = sys.argv[1]
 router = Linksys(addr)
 
