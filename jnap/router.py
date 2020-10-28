@@ -143,7 +143,7 @@ class Linksys:
         if count is not None:
             data["pingCount"] = count
 
-        print data
+        print(data)
         
         return self.do_action("diagnostics/StartPing",
                               headers=self.auth(),
