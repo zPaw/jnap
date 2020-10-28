@@ -118,7 +118,7 @@ class Linksys:
     # stop_ping - stop pinging
     #      args - none
     #      rets - same as do_action
-    #     notes - authentiation required
+    #     notes - authentication required
     #
     def stop_ping(self):
         return self.do_action("diagnostics/StopPing",
