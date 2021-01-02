@@ -139,6 +139,12 @@ on the router instance.
                         rets - same as do-action
                        notes - authentication required
 
+     set_mac_filter_settings - get the current settings for the MAC filter
+                        args -      mode - string MAC filter mode. possible values (Deny, Allow)
+                               addresses - list of string addresses to filter
+                        rets - same as do-action
+                       notes - authentication required
+
 ### Extending
 
 All of the above methods are implemented by calling the following helper
